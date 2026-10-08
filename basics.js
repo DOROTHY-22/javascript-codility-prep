@@ -176,7 +176,31 @@ function countUserRoles(users){
     else {
       (acc[role]) = 1;
     }
+    return acc; 
+    },{});
+}
+console.log(countUserRoles(users));
+
+const logs = [
+  { id: 1, severity: "critical" },
+  { id: 2, severity: "info" },
+  { id: 3, severity: "warning" },
+  { id: 4, severity: "critical" },
+  { id: 5, severity: "info" },
+  { id: 6, severity: "critical" }
+];
+function countSeverities(logs) {
+  return logs
+  .reduce((acc,log) => {
+    const severity = log.severity;
+    if (acc[severity]){
+      (acc[severity]) += 1;
+    }
+    else {
+      (acc[severity]) = 1;
+    }
     return acc;
   },{});
 }
-console.log(countUserRoles(users));
+  
+console.log(countSeverities(logs));
