@@ -143,9 +143,40 @@ const employees = [
     .reduce((total,employee) => employee.department === 'Engineering'? total + employee.salary : total , 0);
  }
 
-console.log(getEngineeringBudget(employees));*/
+console.log(getEngineeringBudget(employees));
 const scannedItems = ["electronics", "clothing", "electronics", "groceries", "clothing", "electronics"];
  function countCategories(items){
     return items
-    .reduce(())
+    .reduce((acc,category) => {
+      if (acc[category]){
+        (acc[category]) += 1;
+       }
+       else {
+        (acc[category]) = 1;
+       }
+       return acc;
+    },{});
  }
+ console.log(countCategories(scannedItems));*/
+ const users = [
+  { name: "Alice", role: "admin" },
+  { name: "Bob", role: "editor" },
+  { name: "Charlie", role: "viewer" },
+  { name: "Diana", role: "editor" },
+  { name: "Eve", role: "admin" },
+  { name: "Frank", role: "admin" }
+];
+function countUserRoles(users){
+  return users
+  .reduce ((acc, user) => {
+    const role = user.role;
+    if (acc[role]) {
+      (acc[role]) += 1;
+    }
+    else {
+      (acc[role]) = 1;
+    }
+    return acc;
+  },{});
+}
+console.log(countUserRoles(users));
